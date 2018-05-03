@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    FirstObs = new DisplayEditText();
-    SecondObs = new DisplayLineEdit();
+    FirstObs = new DisplayEditText("DisplayEditText");
+    SecondObs = new DisplayLineEdit("DisplayLineEdit");
     ui->setupUi(this);
     QVBoxLayout  *Hlayout = ui->verticalLayout;
     Hlayout->addWidget(new QLabel("DisplayEditText"));
@@ -41,6 +41,10 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 void MainWindow::on_pushButton_3_clicked()
-{
-
+{   QRegExp re("\\d*");
+    QString buf = ui->lineEdit->text();
+    if(re.exactMatch(buf))
+            _WS.setFreqNewData(buf.toInt());
+    else
+        ui->lineEdit->setText("not a number");
 }

@@ -22,6 +22,7 @@ public:
     WeatherStation();
     void run ()override ;
     void end();
+    void setFreqNewData(int freqNewData);
 };
 
 #endif // WEATHERSTATION_H

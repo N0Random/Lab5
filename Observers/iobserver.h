@@ -11,10 +11,14 @@
 class IObjectObserv;
 class IObserver
 {
+protected:
+    QString _Name;
 public:
-    IObserver();
+    IObserver(QString Name);
     virtual ~IObserver();
     virtual void update(QObject &data);
+    QString getName() const;
+    void setName(const QString &value);
 };
 
 class DisplayEditText:public IObserver
@@ -24,7 +28,7 @@ private:
     QTextEdit *_display;
     WeatherData _dataWeather;
 public:
-    DisplayEditText();
+    DisplayEditText(QString Name);
     ~DisplayEditText();
     void update(QObject &data);
     QTextEdit *display() const;
@@ -38,7 +42,7 @@ private:
     QLineEdit *_display;
     WeatherData _dataWeather;
 public:
-    DisplayLineEdit();
+    DisplayLineEdit(QString Name);
     ~DisplayLineEdit();
     void update(QObject &data);
 

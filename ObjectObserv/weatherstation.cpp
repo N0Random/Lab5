@@ -2,6 +2,11 @@
 
 #include <QTime>
 
+void WeatherStation::setFreqNewData(int freqNewData)
+{
+    _freqNewData = freqNewData;
+}
+
 void WeatherStation::notifyObservers()
 {
     for(auto iter : _listObs)
@@ -16,6 +21,7 @@ WeatherStation::WeatherStation()
 
 void WeatherStation::run()
 {
+    _End = false;
     while(!_End)
     {
         int temp =-30+rand()%60;

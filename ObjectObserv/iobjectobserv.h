@@ -7,6 +7,7 @@
 class IObjectObserv
 {
 protected:
+
     QList<IObserver *> _listObs;
     virtual void notifyObservers();
 public:

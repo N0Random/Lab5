@@ -3,8 +3,18 @@
 #include <qdir.h>
 #include <qtextstream.h>
 
-IObserver::IObserver()
-{ }
+QString IObserver::getName() const
+{
+    return _Name;
+}
+
+void IObserver::setName(const QString &value)
+{
+    _Name = value;
+}
+
+IObserver::IObserver(QString Name)
+{_Name = Name; }
 
 IObserver::~IObserver()
 {}
@@ -17,7 +27,7 @@ QTextEdit *DisplayEditText::display() const
     return _display;
 }
 
-DisplayEditText::DisplayEditText():IObserver()
+DisplayEditText::DisplayEditText(QString Name):IObserver(Name)
 {
     _display=new QTextEdit();
 }
@@ -36,7 +46,7 @@ void DisplayEditText::update(QObject &data)
    _display->append(out);
 }
 
-DisplayLineEdit::DisplayLineEdit():IObserver()
+DisplayLineEdit::DisplayLineEdit(QString Name):IObserver(Name)
 {
     _display=new QLineEdit();
 }
@@ -58,8 +68,8 @@ QLineEdit *DisplayLineEdit::display() const
     return _display;
 }
 
-DisplayDocTxt::DisplayDocTxt(QString Name):IObserver()
-{_Name=Name;}
+DisplayDocTxt::DisplayDocTxt(QString Name):IObserver(Name)
+{}
 
 DisplayDocTxt::~DisplayDocTxt()
 {
