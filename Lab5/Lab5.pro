@@ -25,10 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    weatherstation.cpp \
+    weatherdata.cpp \
+    IObserver.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    weatherstation.h \
+    weatherdata.h \
+    IObserver.h
 
 FORMS += \
         mainwindow.ui
