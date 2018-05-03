@@ -24,17 +24,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    weatherstation.cpp \
-    weatherdata.cpp \
-    IObserver.cpp
+        main/main.cpp \
+        main/mainwindow.cpp \
+   ObjectObserv/weatherstation.cpp \
+   SimpleObject/weatherdata.cpp \
+    Observers/iobserver.cpp \
+    ObjectObserv/iobjectobserv.cpp
 
 HEADERS += \
-        mainwindow.h \
-    weatherstation.h \
-    weatherdata.h \
-    IObserver.h
+       main/mainwindow.h \
+   ObjectObserv/weatherstation.h \
+    SimpleObject/weatherdata.h \
+    Observers/iobserver.h \
+    ObjectObserv/iobjectobserv.h
 
 FORMS += \
         mainwindow.ui

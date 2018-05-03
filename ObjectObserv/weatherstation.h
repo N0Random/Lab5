@@ -2,34 +2,26 @@
 #define WEATHERSTATION_H
 
 
-#include "iobserver.h"
-#include "weatherdata.h"
+
+
+#include "iobjectobserv.h"
 
 #include <QThread>
 #include <qlist.h>
 
+#include <Observers/iobserver.h>
 
-class IObjectObserv
-{
-private:
-    QList<IObserver *> _listObs;
-public:
-    void addObserver(IObserver &newObserv);
-    void removeObserver(IObserver &remObserv);
-    virtual void notifyObservers();
-};
 class WeatherStation:public IObjectObserv,public QThread
 {
 private:
     WeatherData _curData;
     int _freqNewData;
-
+    void notifyObservers();
 public:
     bool _End;
     WeatherStation();
     void run ()override ;
     void end();
-    WeatherData curData() const;
 };
 
 #endif // WEATHERSTATION_H

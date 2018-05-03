@@ -2,9 +2,10 @@
 
 #include <QTime>
 
-WeatherData WeatherStation::curData() const
+void WeatherStation::notifyObservers()
 {
-    return _curData;
+    for(auto iter : _listObs)
+        iter->update(_curData);
 }
 
 WeatherStation::WeatherStation()
@@ -31,18 +32,4 @@ void WeatherStation::end()
     _End=true;
 }
 
-void IObjectObserv::addObserver(IObserver &newObserv)
-{
-    _listObs.append(&newObserv);
-}
 
-void IObjectObserv::removeObserver(IObserver &remObserv)
-{
-    _listObs.removeOne(&remObserv);
-}
-
-void IObjectObserv::notifyObservers()
-{
-    for(auto iter : _listObs)
-        iter->update();
-}

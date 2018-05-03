@@ -1,9 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "weatherstation.h"
 
 #include <QMainWindow>
+
+#include <ObjectObserv/weatherstation.h>
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +28,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     WeatherStation _WS;
+    DisplayEditText *FirstObs;
+    DisplayLineEdit *SecondObs;
 };
 
 #endif // MAINWINDOW_H
