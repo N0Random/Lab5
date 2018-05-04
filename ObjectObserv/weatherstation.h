@@ -16,9 +16,9 @@ class WeatherStation:public IObjectObserv,public QThread
 private:
     WeatherData _curData;
     int _freqNewData;
+    bool _End;
     void notifyObservers();
 public:
-    bool _End;
     WeatherStation();
     void run ()override ;
     void end();
